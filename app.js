@@ -3,7 +3,6 @@ let notes = new Set();
 
 let board = document.getElementById('board'),
 	newNoteBtn = document.getElementById('newnote');
-console.log(localStorage);
 
 
 class Note {
@@ -150,7 +149,6 @@ class Note {
 if (localStorage.length) {
 	for (let i = 0; i < localStorage.length; i++) {
 		let args = JSON.parse(localStorage.getItem(`${i}`));
-		console.log(args);
 		let newNote = new Note(board, args);
 		notes.add(newNote);
 	}
@@ -174,7 +172,6 @@ function createHtml() {
 newNoteBtn.addEventListener('click', () => {
 	let newNote = new Note(board);
 	notes.add(newNote);
-	console.log(notes);
 	createHtml();
 });
 
